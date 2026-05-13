@@ -1,0 +1,57 @@
+.Container {
+    text-align: center;
+    background-color: black;
+}
+.Title {
+    margin-top: 0.1px;
+    color: bisque;
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.Title span
+{
+    color: rgb(255, 200, 134);
+    padding-left: 15px;
+}
+.Boxes
+{
+    background-color: blanchedalmond;
+    display: flex;
+    border: 5px solid burlywood;
+    border-radius: 12px;
+    cursor: pointer;
+    height: 180px;
+    width: 180px;
+}
+.Board
+{
+    height: 600px;
+    width: 550px;
+    display: flex;
+    margin: auto;
+}
+.Boxes img
+{
+    margin: 50px 50px;
+}
+.Title img
+{
+    padding: 20px 20px;
+    height: 50px;
+}
+
+.Reset
+{
+    width: 250px;
+    height: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 40px;
+    background-color: rosybrown;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
