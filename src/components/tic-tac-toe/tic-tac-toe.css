@@ -1,57 +1,180 @@
-.Container {
-    text-align: center;
-    background-color: black;
-}
-.Title {
-    margin-top: 0.1px;
-    color: bisque;
-    font-size: 60px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-.Title span
-{
-    color: rgb(255, 200, 134);
-    padding-left: 15px;
-}
-.Boxes
-{
-    background-color: blanchedalmond;
-    display: flex;
-    border: 5px solid burlywood;
-    border-radius: 12px;
-    cursor: pointer;
-    height: 180px;
-    width: 180px;
-}
-.Board
-{
-    height: 600px;
-    width: 550px;
-    display: flex;
-    margin: auto;
-}
-.Boxes img
-{
-    margin: 50px 50px;
-}
-.Title img
-{
-    padding: 20px 20px;
-    height: 50px;
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.Reset
-{
-    width: 250px;
-    height: 100px;
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #111827);
+    min-height: 100vh;
+}
+
+/* Main Container */
+.Container {
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+/* Title */
+.Title {
+    padding-top: 20px;
+    font-size: 60px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #f8fafc;
+    letter-spacing: 2px;
+}
+
+.Title span {
+    color: #f59e0b;
+    text-shadow: 0px 0px 15px rgba(245, 158, 11, 0.7);
+}
+
+.Title img {
+    height: 55px;
+    width: 55px;
+    object-fit: contain;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Board */
+.Board {
+    width: fit-content;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Boxes */
+.Boxes {
+    height: 160px;
+    width: 160px;
+    background: linear-gradient(145deg, #fef3c7, #fde68a);
+    border: 3px solid #f59e0b;
+    border-radius: 20px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.25s ease;
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.3),
+        inset 0 2px 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Hover Effect */
+.Boxes:hover {
+    transform: translateY(-6px) scale(1.03);
+    background: linear-gradient(145deg, #fde68a, #fcd34d);
+    box-shadow:
+        0 10px 25px rgba(245, 158, 11, 0.5),
+        0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Active Click */
+.Boxes:active {
+    transform: scale(0.95);
+}
+
+/* X and O Images */
+.Boxes img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.Boxes:hover img {
+    transform: scale(1.1);
+}
+
+/* Reset Button */
+.Reset {
+    width: 260px;
+    height: 75px;
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: 40px;
-    background-color: rosybrown;
-    margin-top: 25px;
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    margin-top: 20px;
     margin-bottom: 40px;
-    font-size: 30px;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 8px 20px rgba(234, 88, 12, 0.4),
+        0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.Reset:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 25px rgba(234, 88, 12, 0.6),
+        0 0 30px rgba(245, 158, 11, 0.5);
+}
+
+.Reset:active {
+    transform: scale(0.96);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .Title {
+        font-size: 40px;
+        flex-direction: column;
+    }
+
+    .Board {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .Boxes {
+        width: 100px;
+        height: 100px;
+    }
+
+    .Boxes img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .Reset {
+        width: 200px;
+        height: 65px;
+        font-size: 22px;
+    }
 }
