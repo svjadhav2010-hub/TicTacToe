@@ -179,3 +179,33 @@ body {
         font-size: 22px;
     }
 }
+
+.PlayerSetup{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.PlayerSetup input{
+    width:250px;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+.PlayerSetup button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.Turn{
+    color:white;
+    margin-bottom:15px;
+}
