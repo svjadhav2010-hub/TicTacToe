@@ -122,14 +122,12 @@ function Tic_Tac_Toe()
             {!gameStart ? (
 
                 <div className="PlayerSetup">
-
                     <input
                         type="text"
                         placeholder="Enter Player X Name"
                         value={playerX}
                         onChange={(e)=>setPlayerX(e.target.value)}
                     />
-
                     <input
                         type="text"
                         placeholder="Enter Player O Name"
@@ -137,18 +135,12 @@ function Tic_Tac_Toe()
                         onChange={(e)=>setPlayerY(e.target.value)}
                     />
 
-                    <button onClick={() => setGameStart(true)}>
-                        Start Game
-                    </button>
-
+                    <button onClick={() => setGameStart(true)}>Start Game</button>
                 </div>
 
             ) : (
 
-                <h2 className="Turn">
-                    Turn : {count % 2 === 0 ? playerX : playerY}
-                </h2>
-
+                <h2 className="Turn">Turn : {count % 2 === 0 ? playerX : playerY}</h2>
             )}
 
             <div className="Board">
