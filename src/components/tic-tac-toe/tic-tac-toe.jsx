@@ -11,6 +11,10 @@ function Tic_Tac_Toe()
     let [count,setCount]=useState(0);
     const [lock,setLock]=useState(false);
 
+    const [playerX,setPlayerX]=useState("Player X");
+    const [playerY,setPlayerY]=useState("Player Y");
+    const [gameStart,setGameStart]=useState(false);    
+
     let tittleRef=useRef(null);
     let box1=useRef(null);
     let box2=useRef(null);
@@ -25,9 +29,13 @@ function Tic_Tac_Toe()
     let box_array=[box1,box2,box3,box4,box5,box6,box7,box8,box9];
 
     const toggle=(e,num)=>{
-        if(lock)
+        if(lock || !gameStart)
         {
             return 0;
+        }
+        if(data[num] !== "")
+        {
+            return;
         }
         if(count%2===0)
         {
@@ -49,11 +57,11 @@ function Tic_Tac_Toe()
 
         if(winner==="x")
         {
-            tittleRef.current.innerHTML=`Congrats Player <img src='${X}' alt='X'>`;
+            tittleRef.current.innerHTML=`🔥Congrats Player <img src='${playerX}' alt='X'>`;
         }
         else
         {
-            tittleRef.current.innerHTML=`Congrats Player <img src='${O}' alt='O'>`;
+            tittleRef.current.innerHTML=`🔥Congrats Player <img src='${playerY}' alt='O'>`;
         }
     }
 
@@ -96,17 +104,53 @@ function Tic_Tac_Toe()
 
     const reset=()=>{
         setLock(false);
+        setCount(0);
+
         data=["","","","","","","","",""];
+
         tittleRef.current.innerHTML=`Tic Tac Toe Puzzle in <span> ReactJS </span>`;
+
         box_array.forEach((e)=>{
-            e.current.innerHTML=" ";
+            e.current.innerHTML="";
         })
     };
-
 
     return (
         <div className="Container">
             <h1 className="Title" ref={tittleRef}>Tic Tac Toe Puzzle in <span> ReactJS </span></h1>
+            {/* Player Name Setup */}
+            {!gameStart ? (
+
+                <div className="PlayerSetup">
+
+                    <input
+                        type="text"
+                        placeholder="Enter Player X Name"
+                        value={playerX}
+                        onChange={(e)=>setPlayerX(e.target.value)}
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="Enter Player O Name"
+                        value={playerY}
+                        onChange={(e)=>setPlayerY(e.target.value)}
+                    />
+
+                    <button onClick={() => setGameStart(true)}>
+                        Start Game
+                    </button>
+
+                </div>
+
+            ) : (
+
+                <h2 className="Turn">
+                    Turn : {count % 2 === 0 ? playerX : playerY}
+                </h2>
+
+            )}
+
             <div className="Board">
                 <div className="Row1">
                     <div className="Boxes" onClick={(e)=>{toggle(e,0)}} ref={box1}></div>
