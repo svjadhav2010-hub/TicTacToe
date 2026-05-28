@@ -57,11 +57,11 @@ function Tic_Tac_Toe()
 
         if(winner==="x")
         {
-            tittleRef.current.innerHTML=`🔥Congrats Player <img src='${playerX}' alt='X'>`;
+            tittleRef.current.innerHTML=`🎉 Congrats ${playerX} Wins`;
         }
         else
         {
-            tittleRef.current.innerHTML=`🔥Congrats Player <img src='${playerY}' alt='O'>`;
+            tittleRef.current.innerHTML=`🎉 Congrats ${playerY} Wins`;
         }
     }
 
